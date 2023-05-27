@@ -501,7 +501,7 @@ article p {
         display: inline-block;
     }
 
-    .produtos-item a {
+    /*.produtos-item button {
         width: 20px;
         overflow: hidden;
         text-indent: -200px;
@@ -510,7 +510,7 @@ article p {
         top: 10px;
         background: url("../img/edit.svg") no-repeat;
         transition: 0.3s;
-    }
+    }*/
 
         .produtos-item a:hover {
             background: url("../img/edit-hover.svg") no-repeat;

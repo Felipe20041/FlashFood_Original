@@ -1,69 +1,253 @@
 ﻿<link href="@Url.Content("~/assets/css/style.css")" rel="stylesheet" type="text/css" />
 
-    <section class="produtos">
-        <header class="header-produtos">
-            <h1>Produtos</h1>
-            <a class="btn-site" href="#">Adicionar Produtos</a>
-        </header>
-        <ul>
-            <li class="produtos-item">
+
+<section class="produtos">
+    <header class="header-produtos">
+        <h1>Produtos</h1>
+
+
+        <style>
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+
+            .modal-content {
+                background-color: #fff;
+                margin: 10% auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 45%;
+            }
+
+            .close {
+                color: #aaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            .btn-cardapio {
+                cursor: pointer;
+                display: block;
+                padding: 10px 5px;
+                color: white;
+                font-size: 1.2rem;
+                position: relative;
+                background-color: var(--cor_principal);
+                border-radius: 3px;
+                transition: 0.5s;
+                text-align: center;
+            }
+
+            
+            
+
+            .ipnome input {
+                border: 1px solid black;
+                font-size: 15px;
+                margin-left: 28px;
+                margin-bottom: 10px;
+            }
+
+           
+
+            .ippreco input{
+                border: 1px solid black;
+                font-size: 15px;
+                margin-left: 29px;
+                margin-bottom: 10px;
+            }
+
+            .ipdescricao input{
+                border: 1px solid black;
+                font-size: 15px;
+                margin-bottom: 10px;
+            }
+
+            .imgproduto{
+                margin-bottom: 10px;
+            }
+           
+
+            .modal-body {
+                width: 300px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .btnmodal{
+                cursor: pointer;
+                display: block;  
+                color: white;
+                position: relative;
+                background-color: var(--cor_principal);
+                border-radius: 3px;
+                transition: 0.5s;
+                text-align: center;
+                width: 100px;
+                height: 25px;
+            }
+            
+            .modal-footer{
+                display: flex;
+                justify-content: space-evenly;
+            }
+
+            .produtos-item a {
+    width: 20px;
+    overflow: hidden;
+    text-indent: -200px;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    background: url(../img/edit.svg) no-repeat;
+    transition: 0.3s;
+}
+            
+                
+                
+            </style>
+
+
+
+    </header>
+
+
+
+    <button onclick="openModal()" class="btn-cardapio">Adicionar Produto</button>
+
+    <div id="modal" class="modal">
+
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+
+            <div class="modal-header">
+                <h5 class="modal-title">Adicionar produtos</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+            </div>
+
+            <div class="modal-body">
+
+
+                <div class="ipnome">
+                    <label> Nome : <input type="text" id="User" name="Name" /></label>
+                </div>
+
+                <div class="ippreco">
+                    <label> Preco : <input type="text" id="User" name="Preco" /></label>
+                </div>
+
+                <div class="ipdescricao">
+                    <label> Descricao : <input type="text" id="User" name="Descricao" /></label>
+                </div>
+
+                <div class="imgproduto">
+                    <input type="file" />
+                </div>
+
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btnmodal" data-bs-dismiss="modal">Close</button>
+                
+                <button type="button" class="btnmodal">Save changes</button>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <ul>
+        <li class="produtos-item">
             <img src="~/esfiha (1) - Cópia.png">
-                <ul>
-                    <li><span>Nome:</span> Esfirra de bacon</li>
-                    <li><span>Preço:</span> R$ 10,50</li>
-                    <li><span>Descrição:</span> Bacon, Queijo e Catupiry</li>
-                </ul>
-                <a href="#">Editar</a>
-            </li>
+            <ul>
+                <li><span>Nome:</span> Esfirra de bacon</li>
+                <li><span>Preço:</span> R$ 10,50</li>
+                <li><span>Descrição:</span> Bacon, Queijo e Catupiry</li>
+            </ul>
 
-            <li class="produtos-item">
+            
+
+
+        </li>
+       @* Precisa add o modal de editar produtos aqui *@
+        <li class="produtos-item">
             <img src="~/esfiha (2) - Cópia.png">
-                <ul>
-                    <li><span>Nome:</span> Esfirra de bacon</li>
-                    <li><span>Preço:</span> R$ 10,50</li>
-                    <li><span>Descrição:</span> Bacon, Queijo e Catupiry</li>
-                </ul>
-                <a href="#">Editar</a>
-            </li>
+            <ul>
+                <li><span>Nome:</span> Esfirra de bacon</li>
+                <li><span>Preço:</span> R$ 10,50</li>
+                <li><span>Descrição:</span> Bacon, Queijo e Catupiry</li>
+            </ul>
+            <buton onclick="openModal()">Editar</buton>
+        </li>
 
-            <li class="produtos-item">
+        <li class="produtos-item">
             <img src="~/esfiha (3) - Cópia.png">
-                <ul>
-                    <li><span>Nome:</span> Esfirra de bacon</li>
-                    <li><span>Preço:</span> R$ 10,50</li>
-                    <li><span>Descrição:</span> Bacon, Queijo e Catupiry</li>
-                </ul>
-                <a href="#">Editar</a>
-            </li>
+            <ul>
+                <li><span>Nome:</span> Esfirra de bacon</li>
+                <li><span>Preço:</span> R$ 10,50</li>
+                <li><span>Descrição:</span> Bacon, Queijo e Catupiry</li>
+            </ul>
+            <buton onclick="openModal()">Editar</buton>
+        </li>
 
-            <li class="produtos-item">
-                <img src="~/esfiha (4) - Cópia.png">
-                <ul>
-                    <li><span>Nome:</span> Esfirra de bacon</li>
-                    <li><span>Preço:</span> R$ 10,50</li>
-                    <li><span>Descrição:</span> Bacon, Queijo e Catupiry</li>
-                </ul>
-                <a href="#">Editar</a>
-            </li>
+        <li class="produtos-item">
+            <img src="~/esfiha (4) - Cópia.png">
+            <ul>
+                <li><span>Nome:</span> Esfirra de bacon</li>
+                <li><span>Preço:</span> R$ 10,50</li>
+                <li><span>Descrição:</span> Bacon, Queijo e Catupiry</li>
+            </ul>
+            <buton onclick="openModal()">Editar</buton>
+        </li>
 
-            <li class="produtos-item">
+        <li class="produtos-item">
             <img src="~/esfiha (5) - Cópia.png">
-                <ul>
-                    <li><span>Nome:</span> Esfirra de bacon</li>
-                    <li><span>Preço:</span> R$ 10,50</li>
-                    <li><span>Descrição:</span> Bacon, Queijo e Catupiry</li>
-                </ul>
-                <a href="#">Editar</a>
-            </li>
+            <ul>
+                <li><span>Nome:</span> Esfirra de bacon</li>
+                <li><span>Preço:</span> R$ 10,50</li>
+                <li><span>Descrição:</span> Bacon, Queijo e Catupiry</li>
+            </ul>
+            <buton onclick="openModal()">Editar</buton>
+        </li>
 
-            <li class="produtos-item">
+        <li class="produtos-item">
             <img src="~/esfiha (6) - Cópia.png">
-                <ul>
-                    <li><span>Nome:</span> Esfirra de bacon</li>
-                    <li><span>Preço:</span> R$ 10,50</li>
-                    <li><span>Descrição:</span> Bacon, Queijo e Catupiry</li>
-                </ul>
-                <a href="#">Editar</a>
-            </li>
-        </ul>
-    </section>
+            <ul>
+                <li><span>Nome:</span> Esfirra de bacon</li>
+                <li><span>Preço:</span> R$ 10,50</li>
+                <li><span>Descrição:</span> Bacon, Queijo e Catupiry</li>
+            </ul>
+            <buton>Editar</buton>
+        </li>
+    </ul>
+</section>
+
+
+
+<script>
+    function openModal() {
+        document.getElementById("modal").style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("modal").style.display = "none";
+    }
+
+    
+</script>
